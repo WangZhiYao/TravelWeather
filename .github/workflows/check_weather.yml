@@ -1,0 +1,45 @@
+name: Check Weather
+
+on:
+  schedule:
+    - cron: "0 0 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v4.6.1
+        with:
+          python-version: '3.11.4'
+          cache: 'pip'
+          check-latest: true
+          cache-dependency-path: '**/requirements.txt'
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install -r requirements.txt
+
+      - name: Run
+        env:
+          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+        run: python3 main.py
+
+      - name: Commit
+        run: |
+          git config --local user.email 393893729@qq.com
+          git config --local user.name WangZhiYao
+          git add .
+          git commit -a -m "Update: `TZ='Asia/Shanghai' date +'%Y-%m-%d %H:%M:%S'`"
+          git push
+
