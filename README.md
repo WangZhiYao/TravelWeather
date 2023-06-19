@@ -8,12 +8,7 @@ Please note that the free version of the API only provides weather forecasts for
 ## Current Status
 
 ```
-2023-06-16 - 周末天气晴好提醒
-以下城市将在本周末天气晴好：
-
-威海 更新时间 - 2023-06-16 10:35:
-2023-06-17 最高气温: 29°C 最低气温: 18°C 夜间：多云
-2023-06-18 最高气温: 26°C 最低气温: 17°C 夜间：多云
+2023-06-19 - 未来7日内无晴好周末
 ```
 
 ## Configuration
