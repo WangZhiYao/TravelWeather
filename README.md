@@ -8,7 +8,7 @@ Please note that the free version of the API only provides weather forecasts for
 ## Current Status
 
 ```
-2023-06-26 - 未来7日内无晴好周末
+2023-06-27 - 未来7日内无晴好周末
 ```
 
 ## Configuration
