@@ -8,12 +8,7 @@ Please note that the free version of the API only provides weather forecasts for
 ## Current Status
 
 ```
-2023-07-04 - 周末天气晴好提醒
-以下城市将在本周末天气晴好：
-
-厦门 更新时间 - 2023-07-04 08:35:
-2023-07-08 最高气温: 35°C 最低气温: 27°C 夜间：晴
-2023-07-09 最高气温: 35°C 最低气温: 27°C 夜间：晴
+2023-07-04 - 未来7日内无晴好周末
 ```
 
 ## Configuration
@@ -22,6 +17,8 @@ Please note that the free version of the API only provides weather forecasts for
 
 This project uses the `Repository Secrets` feature of GitHub Actions. The following parameters are required:
 
+- `SMTP_SERVER`: The SMTP server.
+- `SMTP_PORT`: The SMTP port.
 - `EMAIL_ADDRESS`: The email address of the SMTP sender.
 - `EMAIL_PASSWORD`: The password of the SMTP sender.
 - `EMAIL_RECEIVER`: The email address of the recipient.
@@ -32,24 +29,6 @@ This project uses the `Repository Secrets` feature of GitHub Actions. The follow
 
 The `city.json` file contains the `name` and `locationId` of the cities returned by
 the [HeWeather GEO API](https://dev.qweather.com/docs/api/geoapi/city-lookup/).
-
-### Email Notification
-
-By default, email notifications will be sent using [Tencent Enterprise Email](https://exmail.qq.com).
-
-Email notification content:
-
-> 2023-06-01 - 每日周末天气晴好提醒
->
-> 以下城市将在本周末天气晴好:
->
-> 嵊泗 更新时间 - 2023-06-01 09:35:  
-> 2023-06-03 最高气温: 23°C 最低气温: 20°C 夜间：晴  
-> 2023-06-04 最高气温: 21°C 最低气温: 20°C 夜间：晴
->
-> 大理 更新时间 - 2023-06-01 09:35:  
-> 2023-06-03 最高气温: 28°C 最低气温: 14°C 夜间：晴  
-> 2023-06-04 最高气温: 31°C 最低气温: 16°C 夜间：晴
 
 ## TODO
 
